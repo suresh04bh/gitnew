@@ -1,0 +1,111 @@
+Kubernetes objects:
+===========================================
+Pod: 
+ apiversion: v1
+ kind: pod
+ metadata: 
+   name:
+   labels: 
+ spec:
+   containers:
+    - name:
+      image:
+      ports: 
+       - containerPort:
+         hostPort:
+==========================================
+
+Namespace:
+  apiVersion: v1
+  kind: Namespace
+  metadat: 
+    name: 
+
+
+
+==========================================
+replicationController:
+   apiVersion: v1
+   kind: replicationcontroller
+   metadata:
+     name:
+     labels:
+   spec:
+     replicas:
+     template: 
+        metadata:
+        spec:
+
+===========================================
+
+ReplicaSet
+ 
+ apiVersion: apps/v1
+ kind: ReplicaSet
+ metadata:
+   name:
+   labels:
+ spec:
+   replicas:
+   selector: 
+     matchLabels:
+     labels
+   template:
+     metadata:
+     spec:
+
+
+Scaling can be done in two ways:
+  1) kubectl scale --replicas= -f <name>
+  2) modify in definition file and kubectl replace -f <name>
+
+
+
+===========================================================
+
+Diploymenet:
+ apiVersion: apps/v1
+ kind: Diployment
+ metadata:
+   name:
+   labels:
+ spec:
+   replicas:
+   selector: 
+     matchLabels:
+     labels
+   template:
+     metadata:
+     spec:
+=====================================================
+
+Service objects:
+
+
+NodePort: which is used for network balancing which give access to map with other nodes also ( NordPort links with containerPort 30000 to 32767)
+LoadBalancer : which gives one unique IP for whole cluster
+ClusterIP : is used for internal mapping for communication ( database)
+  
+
+
+apiVersion: v1
+kind: service
+metadata:
+  name:
+  labels:
+spec:
+  type: NodePort/LoadBalancer/ClusterIP
+   - ports:
+       targetPort: containerPort
+       port:  servicePort
+       1)nodePort: 30000 to 32767
+       2)LoadBalancer
+
+
+ 
+
+============================================================== 
+ 
+
+   
+
